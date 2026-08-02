@@ -75,6 +75,8 @@ for epoch in range(epochs):
             test_epoch_loss += test_loss.item()
         test_epoch_loss = test_epoch_loss/len(test_loader)
         eval_losses.append(test_epoch_loss)
+    if epoch%5 == 0:
+        print(f"epoch : {epoch}, train loss : {train_loss}, test loss : {test_loss}")
 
 plt.plot(range(epochs), train_losses, label = "train")
 plt.plot(range(epochs), eval_losses, label = "test")
