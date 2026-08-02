@@ -77,7 +77,10 @@ for epoch in range(epochs):
         eval_losses.append(test_epoch_loss)
     if epoch%5 == 0:
         print(f"epoch : {epoch}, train loss : {train_loss}, test loss : {test_loss}")
-
+torch.save(model.state_dict(), "salary_model_best.pth")
+import joblib
+joblib.dump(x_scaler, "x_scaler.pkl")
+joblib.dump(y_scaler, "y_scaler.pkl")
 plt.plot(range(epochs), train_losses, label = "train")
 plt.plot(range(epochs), eval_losses, label = "test")
 plt.title("test train losses")
