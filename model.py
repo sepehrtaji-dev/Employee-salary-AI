@@ -45,6 +45,7 @@ epochs = 100
 train_losses = []
 eval_losses = []
 model = salary_classification(x_train_tensor.shape[1])
+model.to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 loss_fn = nn.MSELoss()
 
